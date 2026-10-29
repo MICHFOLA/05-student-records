@@ -19,6 +19,7 @@ try {
     $databaseUnavailable = true;
 }
 
+$csrfToken = csrfToken();
 require __DIR__ . '/partials/header.php';
 ?>
 <section class="page-heading">
@@ -70,9 +71,14 @@ require __DIR__ . '/partials/header.php';
                             </td>
                             <td>
                                 <div class="actions">
+                                    <a href="show.php?id=<?= e($student['id']) ?>">View</a>
                                     <a href="edit.php?id=<?= e($student['id']) ?>">Edit</a>
-                                    <form method="post" action="delete.php" onsubmit="return confirm('Delete this student record?');">
+                                    <form method="post" action="delete.php" onsubmit="return confirm(<?= e(json_encode(
+                                        'Delete ' . $student['first_name'] . ' ' . $student['last_name'] . '?',
+                                        JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT
+                                    )) ?>);">
                                         <input type="hidden" name="id" value="<?= e($student['id']) ?>">
+                                        <input type="hidden" name="csrf_token" value="<?= e($csrfToken) ?>">
                                         <button class="action-delete" type="submit">Delete</button>
                                     </form>
                                 </div>
