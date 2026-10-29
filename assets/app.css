@@ -105,6 +105,30 @@ h1 {
     gap: 10px;
 }
 
+.student-filters {
+    display: flex;
+    align-items: flex-end;
+    gap: 14px;
+    margin-bottom: 20px;
+    padding: 18px;
+    border: 1px solid #e2e8f0;
+    border-radius: 9px;
+    background: #fff;
+}
+
+.student-filters .form-field {
+    flex: 1 1 220px;
+}
+
+.student-filters .search-field {
+    flex: 2 1 300px;
+}
+
+.filter-actions {
+    display: flex;
+    gap: 8px;
+}
+
 .button {
     display: inline-flex;
     min-height: 42px;
@@ -356,6 +380,49 @@ h1 {
     padding-left: 20px;
 }
 
+.pagination-summary {
+    margin-top: 16px;
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.pagination {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+}
+
+.pagination-link {
+    display: inline-flex;
+    min-width: 38px;
+    min-height: 38px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    background: #fff;
+    color: #2457c5;
+    font-weight: 600;
+}
+
+.pagination-link:hover {
+    background: #f8fafc;
+    text-decoration: none;
+}
+
+.pagination-link.is-current {
+    border-color: #2457c5;
+    background: #2457c5;
+    color: #fff;
+}
+
+.pagination-link.is-disabled {
+    color: #94a3b8;
+}
+
 .alert p {
     margin: 0;
 }
@@ -385,6 +452,15 @@ h1 {
     .page-heading {
         align-items: flex-start;
         flex-direction: column;
+    }
+
+    .student-filters {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .filter-actions {
+        flex-wrap: wrap;
     }
 
     .student-form {
